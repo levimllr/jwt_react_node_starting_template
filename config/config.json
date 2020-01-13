@@ -1,23 +1,23 @@
 {
   "development": {
-    "username": "root",
-    "password": "RJFtco2007",
-    "database": "authentication",
+    "username": "libai",
+    "password": "3lGranMolin@",
+    "database": "test",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "postgres"
   },
   "test": {
-    "username": "root",
-    "password": null,
+    "username": "test",
+    "password": "3lGranMolin@",
     "database": "database_test",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "postgres"
   },
   "production": {
-    "username": "root",
-    "password": null,
+    "username": "test",
+    "password": "3lGranMolin@",
     "database": "database_production",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "postgres"
   }
 }

@@ -3,6 +3,7 @@ import React, {Component} from "react";
 import './login.css'
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import AuthHelperMethods from './components/AuthHelperMethods';
 
 export default class Signup extends Component {
     
@@ -11,6 +12,8 @@ export default class Signup extends Component {
         username: "",
         password: ""
     }
+
+    Auth = new AuthHelperMethods();
 
     _handleChange = (e) => {
         
@@ -24,13 +27,16 @@ export default class Signup extends Component {
     }
 
     handleFormSubmit = (e) => {
-
         e.preventDefault();
         
-        
-        
-        
-    }
+        axios.post("/signup", {
+            username: this.state.username,
+            password: this.state.password
+        }).then(data => {
+            console.log(data);
+            this.props.history.replace("/login");
+        });  
+    };
 
     render() {
         return (

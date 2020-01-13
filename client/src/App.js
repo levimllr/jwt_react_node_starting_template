@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-
+import AuthHelperMethods from './components/AuthHelperMethods';
+import withAuth from './components/withAuth';
 
 class App extends Component {
 
@@ -9,13 +10,13 @@ class App extends Component {
     username: "",
     password: ""
   }
+  Auth = new AuthHelperMethods();
 
 /* Here will want to add a method to log the user out upon clicking 'Logout' */
   _handleLogout = () => {
-    
-    
+    this.Auth.logout();
     this.props.history.replace('/login');
-  }
+  };
 
   //Render the protected component
   render() {
@@ -38,8 +39,10 @@ class App extends Component {
         </div>
       </div>
     );
-  }
-}
+  };
+};
 
-//In order for this component to be protected, we must wrap it with what we call a 'Higher Order Component' or HOC.
-export default App;
+/* In order for this component to be protected, we must wrap it with 
+what we call a 'Higher Order Component' or HOC. */
+
+export default withAuth(App);
